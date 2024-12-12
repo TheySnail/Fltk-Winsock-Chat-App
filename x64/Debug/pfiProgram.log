@@ -1,0 +1,18 @@
+﻿  Client.cpp
+F:\year 2\PFI\FLTK-INITAIL-UPLOAD\Client.cpp(74,70): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+  ClientSocket.cpp
+F:\year 2\PFI\FLTK-INITAIL-UPLOAD\ClientSocket.cpp(45,64): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+  ClientSocket.h
+  main.cpp
+  MainWindow.cpp
+  MainWindowLayout.cpp
+  Server.cpp
+  ServerSocket.cpp
+F:\year 2\PFI\FLTK-INITAIL-UPLOAD\ServerSocket.cpp(33,44): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+  Timer.cpp
+  Wsa.cpp
+  Generating Code...
+F:\year 2\PFI\FLTK-INITAIL-UPLOAD\Client.cpp(65): warning C4715: 'Client::ClientConnect': not all control paths return a value
+x64\Debug\ClientSocket.obj : warning LNK4042: object specified more than once; extras ignored
+LINK : warning LNK4098: defaultlib 'MSVCRT' conflicts with use of other libs; use /NODEFAULTLIB:library
+  pfiProgram.vcxproj -> F:\year 2\PFI\FLTK-INITAIL-UPLOAD\x64\Debug\pfiProgram.exe
