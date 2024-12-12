@@ -83,10 +83,11 @@ void Client::on_tick()
 	m_ClientSocket->send(buffer1);
 
 	//recieve incoming data
-	std::vector<unsigned char> buffer(1024);
+	/*std::vector<unsigned char> buffer(1024);
 
 	while (true)
 	{
+		
 		int bytes = m_ClientSocket->receive(buffer);
 		if (!bytes)
 		{
@@ -102,7 +103,19 @@ void Client::on_tick()
 		{
 			std::cout << m_IncomingData[ci];
 		}
+	}*/
+
+	std::string buffer;
+	if (m_ClientSocket->receive(buffer))
+	{
+		std::cout << buffer;
+
+		/*textbuffer.append(buffer);	how to display text onto wdiget
+		textbuffer.append(\n);
+		display text buffer*/
 	}
+
+	//use fltk display to show message
 }
 
 
