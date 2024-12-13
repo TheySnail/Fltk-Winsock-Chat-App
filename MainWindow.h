@@ -8,17 +8,26 @@
 #include "Client.h"
 #include "MainWindowLayout.h"
 
+
+class  Client;
+
+
 class MainWindow : public MainWindowLayout
 {
 
 public: 
 	MainWindow();
+	void AddToDisplay(std::string _buffer);
 
 private:
 	//button functions
 	static void CreateServer(Fl_Widget* _widget, void* _userData);
-	static void CreateClient(Fl_Widget* _widget, void* _userData);
+	static void StaticCreateClient(Fl_Widget* _widget, void* _userData);
+	void CreateClient();
 	static void ConfirmIp(Fl_Widget* _widget, void* _userData);
+
+	static void StaticSendUserMessage(Fl_Widget* _widget, void* _userData);
+	void SendUserMessage();
 
 
 	bool m_ServerActive;

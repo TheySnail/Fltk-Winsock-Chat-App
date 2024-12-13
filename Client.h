@@ -8,19 +8,23 @@
 #include "Timer.h"
 #include <WinSock2.h>
 
+#include "MainWindow.h"
+
+class MainWindow;
+
 class Client :public Timer
 {
 public:
-	Client();
+	Client(MainWindow* _MainWindowPtr);
 	~Client();
 
 	void InputIpAddr(std::string _IpAddr);
-	//int ClientConnect();
+	void ClientSend(std::string _Message);
+
 private:
 	
 	void on_tick();
 	int m_Port;
-	SOCKET m_ClientSocketBackup;
 
 	std::string m_ServerIPAdrr;
 
@@ -28,4 +32,6 @@ private:
 
 	std::vector<unsigned char> m_IncomingData;
 	//std::string m_IncomingData;
+
+	MainWindow* m_MainWindowPtr;
 };

@@ -36,6 +36,8 @@ MainWindowLayout::MainWindowLayout()
 	, m_LeftSideBox(0, 0, 10, 10)
 	, m_MessageInput(0, 0, 100, 200, "Enter Message")
 	, m_MessageSendBttn(0,0,0,0,"Send Message")
+	, m_textBuffer(0,0)
+	, m_textDisplay(0,0,10,10)
 
 {
 
@@ -109,7 +111,7 @@ MainWindowLayout::MainWindowLayout()
 
 	m_LeftSideBox.add_resizable(m_MessageInput);
 	m_LeftSideBox.add_resizable(m_MessageSendBttn);
-
+	m_LeftSideBox.add_resizable(m_textDisplay);
 
 	m_ClientViewGroup->add_resizable(m_ClientMainCol);
 	m_ClientViewGroup->end();
@@ -166,7 +168,7 @@ MainWindowLayout::MainWindowLayout()
 
 void MainWindowLayout::ChangeLayout(LayoutType _ScreenState)
 {
-	switch (_ScreenState)
+	switch (_ScreenState)//hides groups of widegets based on what screen should be showing
 	{
 	case MainMenu:
 		{
@@ -174,6 +176,9 @@ void MainWindowLayout::ChangeLayout(LayoutType _ScreenState)
 			m_ServerViewGroup->hide();
 			m_MainMenuGroup->show();
 			m_IpInputScreenGroup->hide();
+			//resizes the screen to make sure widgets are showing in correct positions
+			this->resize(x(), y(), w() + 5, h());
+			this->resize(x(), y(), w() - 5, h());
 			break;
 		}
 	case ClientScreen:
@@ -182,6 +187,9 @@ void MainWindowLayout::ChangeLayout(LayoutType _ScreenState)
 			m_ServerViewGroup->hide();
 			m_MainMenuGroup->hide();
 			m_IpInputScreenGroup->hide();
+			//resizes the screen to make sure widgets are showing in correct positions
+			this->resize(x(), y(), w() + 5, h());
+			this->resize(x(), y(), w() - 5, h());
 			break;
 		}
 	case ServerScreen:
@@ -190,6 +198,9 @@ void MainWindowLayout::ChangeLayout(LayoutType _ScreenState)
 			m_ServerViewGroup->show();
 			m_MainMenuGroup->hide();
 			m_IpInputScreenGroup->hide();
+			//resizes the screen to make sure widgets are showing in correct positions
+			this->resize(x(), y(), w() + 5, h());
+			this->resize(x(), y(), w() - 5, h());
 			break;
 		}
 	case ClientIpScreen:
@@ -198,6 +209,7 @@ void MainWindowLayout::ChangeLayout(LayoutType _ScreenState)
 			m_ServerViewGroup->hide();
 			m_MainMenuGroup->hide();
 			m_IpInputScreenGroup->show();
+			//resizes the screen to make sure widgets are showing in correct positions
 			this->resize(x(), y(), w() + 5, h());
 			this->resize(x(), y(), w() - 5, h());
 			break;

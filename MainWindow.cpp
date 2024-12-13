@@ -14,14 +14,17 @@ MainWindow::MainWindow()
 
 
 	m_CreateServerBttn.callback(CreateServer, this);
-	m_CreateClientBttn.callback(CreateClient, this);
+	m_CreateClientBttn.callback(StaticCreateClient, this);
 	m_IpConfirmBttn.callback(ConfirmIp, this);
+	m_MessageSendBttn.callback(StaticSendUserMessage, this);
 
 	m_menuBar.add("&File/&Open", "^o", NULL);
 	m_menuBar.add("&File/&Save", "^s", NULL,0, FL_MENU_DIVIDER);
 	m_menuBar.add("&File/&Exit", "^e", CreateServer, this);
 
 	ChangeLayout(MainMenu);
+
+	
 }
 
 void MainWindow::CreateServer(Fl_Widget* _widget, void* _userData)
@@ -45,23 +48,25 @@ void MainWindow::CreateServer(Fl_Widget* _widget, void* _userData)
 	
 }
 
-void MainWindow::CreateClient(Fl_Widget* _widget, void* _userData)
+//having a static and non static version of a function allows me to get around the weird fltk callback limitations
+void MainWindow::StaticCreateClient(Fl_Widget* _widget, void* _userData)
 {
 	MainWindow* mw = (MainWindow*)_userData;
-	mw->m_Client = std::make_shared<Client>();
-	std::cout << "client created" << std::endl;
 
-	mw->ChangeLayout(ClientIpScreen);
+	mw->CreateClient();
 }
 
+void MainWindow::CreateClient()
+{
+	m_Client = std::make_shared<Client>(this);
+	ChangeLayout(ClientIpScreen);
+}
 
 void MainWindow::ConfirmIp(Fl_Widget* _widget, void* _userData)
 {
 	MainWindow* mw = (MainWindow*)_userData;
 	try
 	{
-		int isConnected = 0;
-
 		std::string buffer;
 
 		buffer = mw->m_IpInputBox.value();
@@ -72,10 +77,7 @@ void MainWindow::ConfirmIp(Fl_Widget* _widget, void* _userData)
 
 		mw->m_Client->InputIpAddr(buffer);
 
-		if (isConnected == 1)
-		{
-			mw->ChangeLayout(ClientScreen);
-		}
+		mw->ChangeLayout(ClientScreen);
 	}
 	catch (std::exception& _e)
 	{
@@ -85,7 +87,25 @@ void MainWindow::ConfirmIp(Fl_Widget* _widget, void* _userData)
 	
 }
 	
+void MainWindow::StaticSendUserMessage(Fl_Widget* _widget, void* _userData)
+{
+	MainWindow* mw = (MainWindow*)_userData;
+	mw->SendUserMessage();
+}
 
+void MainWindow::SendUserMessage()
+{
+	std::string buffer;
+	buffer = m_MessageInput.value();
+	m_Client->ClientSend(buffer);
+}
+
+void MainWindow::AddToDisplay(std::string _buffer)
+{
+	m_textBuffer.append(_buffer.c_str());
+	m_textBuffer.append("\n");
+	m_textDisplay.buffer(m_textBuffer);
+}
 
 
 //void MainWindow::on_tick()

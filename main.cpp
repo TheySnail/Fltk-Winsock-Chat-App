@@ -19,10 +19,10 @@ int main(int argc, char* argv[])
 
 	printf("Initialized Winsock\n");
 
-	MainWindow MW;
+	std::shared_ptr	<MainWindow> MW = std::make_shared<MainWindow>();
 
 
-	MW.show(argc, argv);
+	MW->show(argc, argv);
 
 
 	return Fl::run();

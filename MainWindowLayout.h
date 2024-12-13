@@ -75,6 +75,7 @@ protected:
 	Fl_Button m_MessageSendBttn;
 
 	Fl_Text_Buffer m_textBuffer;
+	Fl_Text_Display m_textDisplay;
 
 	//IP input screen
 
