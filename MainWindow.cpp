@@ -77,7 +77,6 @@ void MainWindow::ConfirmIp(Fl_Widget* _widget, void* _userData)
 
 		mw->m_Client->InputIpAddr(buffer);
 
-		mw->ChangeLayout(ClientScreen);
 	}
 	catch (std::exception& _e)
 	{

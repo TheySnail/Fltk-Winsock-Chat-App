@@ -68,14 +68,14 @@ protected:
 	
 	//client view assets
 	Fl_Flex m_ClientMainCol;
-	
-	Fl_Flex m_LeftSideBox;
-
-	Fl_Input m_MessageInput;
-	Fl_Button m_MessageSendBttn;
+	Fl_Flex m_ClientTopBox;
+	Fl_Flex m_ClientBottomRow;
 
 	Fl_Text_Buffer m_textBuffer;
 	Fl_Text_Display m_textDisplay;
+
+	Fl_Input m_MessageInput;
+	Fl_Button m_MessageSendBttn;
 
 	//IP input screen
 

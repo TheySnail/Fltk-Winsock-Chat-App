@@ -20,11 +20,12 @@ struct ClientSocket
 
 	bool m_closed;
 
+	bool m_ClientConnected;
+
 private:
 	friend struct ServerSocket;
 
 	SOCKET m_socket;
-
 
 	ClientSocket(const ClientSocket& _copy);
 	ClientSocket& operator=(const ClientSocket& _assign);

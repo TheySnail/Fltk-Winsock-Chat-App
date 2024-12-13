@@ -3,8 +3,20 @@
   "WorkspaceRootPath": "D:\\s5613845\\Fltk-networking-assignment\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{74A1BB1E-5288-430F-90E2-CFE0C62FFA8F}|pfiProgram.vcxproj|D:\\s5613845\\Fltk-networking-assignment\\MainWindowLayout.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{74A1BB1E-5288-430F-90E2-CFE0C62FFA8F}|pfiProgram.vcxproj|solutionrelative:MainWindowLayout.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{74A1BB1E-5288-430F-90E2-CFE0C62FFA8F}|pfiProgram.vcxproj|D:\\s5613845\\Fltk-networking-assignment\\ClientSocket.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{74A1BB1E-5288-430F-90E2-CFE0C62FFA8F}|pfiProgram.vcxproj|solutionrelative:ClientSocket.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{74A1BB1E-5288-430F-90E2-CFE0C62FFA8F}|pfiProgram.vcxproj|D:\\s5613845\\Fltk-networking-assignment\\MainWindow.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{74A1BB1E-5288-430F-90E2-CFE0C62FFA8F}|pfiProgram.vcxproj|solutionrelative:MainWindow.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{74A1BB1E-5288-430F-90E2-CFE0C62FFA8F}|pfiProgram.vcxproj|D:\\s5613845\\Fltk-networking-assignment\\ServerSocket.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{74A1BB1E-5288-430F-90E2-CFE0C62FFA8F}|pfiProgram.vcxproj|solutionrelative:ServerSocket.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{74A1BB1E-5288-430F-90E2-CFE0C62FFA8F}|pfiProgram.vcxproj|D:\\s5613845\\Fltk-networking-assignment\\MainWindowLayout.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
@@ -19,32 +31,20 @@
       "RelativeMoniker": "D:0:0:{74A1BB1E-5288-430F-90E2-CFE0C62FFA8F}|pfiProgram.vcxproj|solutionrelative:Client.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{74A1BB1E-5288-430F-90E2-CFE0C62FFA8F}|pfiProgram.vcxproj|D:\\s5613845\\Fltk-networking-assignment\\ServerSocket.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{74A1BB1E-5288-430F-90E2-CFE0C62FFA8F}|pfiProgram.vcxproj|solutionrelative:ServerSocket.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{74A1BB1E-5288-430F-90E2-CFE0C62FFA8F}|pfiProgram.vcxproj|D:\\s5613845\\Fltk-networking-assignment\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{74A1BB1E-5288-430F-90E2-CFE0C62FFA8F}|pfiProgram.vcxproj|solutionrelative:main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{74A1BB1E-5288-430F-90E2-CFE0C62FFA8F}|pfiProgram.vcxproj|D:\\s5613845\\Fltk-networking-assignment\\MainWindow.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{74A1BB1E-5288-430F-90E2-CFE0C62FFA8F}|pfiProgram.vcxproj|solutionrelative:MainWindow.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{74A1BB1E-5288-430F-90E2-CFE0C62FFA8F}|pfiProgram.vcxproj|D:\\s5613845\\Fltk-networking-assignment\\ClientSocket.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{74A1BB1E-5288-430F-90E2-CFE0C62FFA8F}|pfiProgram.vcxproj|solutionrelative:ClientSocket.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{74A1BB1E-5288-430F-90E2-CFE0C62FFA8F}|pfiProgram.vcxproj|D:\\s5613845\\Fltk-networking-assignment\\Server.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{74A1BB1E-5288-430F-90E2-CFE0C62FFA8F}|pfiProgram.vcxproj|solutionrelative:Server.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{74A1BB1E-5288-430F-90E2-CFE0C62FFA8F}|pfiProgram.vcxproj|D:\\s5613845\\Fltk-networking-assignment\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{74A1BB1E-5288-430F-90E2-CFE0C62FFA8F}|pfiProgram.vcxproj|solutionrelative:main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{74A1BB1E-5288-430F-90E2-CFE0C62FFA8F}|pfiProgram.vcxproj|D:\\s5613845\\Fltk-networking-assignment\\MainWindowLayout.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{74A1BB1E-5288-430F-90E2-CFE0C62FFA8F}|pfiProgram.vcxproj|solutionrelative:MainWindowLayout.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{74A1BB1E-5288-430F-90E2-CFE0C62FFA8F}|pfiProgram.vcxproj|D:\\s5613845\\Fltk-networking-assignment\\ClientSocket.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{74A1BB1E-5288-430F-90E2-CFE0C62FFA8F}|pfiProgram.vcxproj|solutionrelative:ClientSocket.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{74A1BB1E-5288-430F-90E2-CFE0C62FFA8F}|pfiProgram.vcxproj|D:\\s5613845\\Fltk-networking-assignment\\ClientSocket.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{74A1BB1E-5288-430F-90E2-CFE0C62FFA8F}|pfiProgram.vcxproj|solutionrelative:ClientSocket.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{74A1BB1E-5288-430F-90E2-CFE0C62FFA8F}|pfiProgram.vcxproj|D:\\s5613845\\Fltk-networking-assignment\\MainWindow.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{74A1BB1E-5288-430F-90E2-CFE0C62FFA8F}|pfiProgram.vcxproj|solutionrelative:MainWindow.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{74A1BB1E-5288-430F-90E2-CFE0C62FFA8F}|pfiProgram.vcxproj|D:\\s5613845\\Fltk-networking-assignment\\Timer.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
@@ -74,37 +74,37 @@
       "DocumentGroups": [
         {
           "DockedWidth": 210,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 7,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 9,
               "Title": "Server.cpp",
               "DocumentMoniker": "D:\\s5613845\\Fltk-networking-assignment\\Server.cpp",
               "RelativeDocumentMoniker": "Server.cpp",
               "ToolTip": "D:\\s5613845\\Fltk-networking-assignment\\Server.cpp",
               "RelativeToolTip": "Server.cpp",
-              "ViewState": "AQIAAA8AAAAAAAAAAAAAAAEAAAAAAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAEAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-12-12T09:02:18.865Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 5,
               "Title": "Client.cpp",
               "DocumentMoniker": "D:\\s5613845\\Fltk-networking-assignment\\Client.cpp",
               "RelativeDocumentMoniker": "Client.cpp",
               "ToolTip": "D:\\s5613845\\Fltk-networking-assignment\\Client.cpp",
               "RelativeToolTip": "Client.cpp",
-              "ViewState": "AQIAAAkAAAAAAAAAAAAAAB4AAAAAAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAARAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-12-12T09:02:18.95Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 3,
               "Title": "ServerSocket.cpp",
               "DocumentMoniker": "D:\\s5613845\\Fltk-networking-assignment\\ServerSocket.cpp",
               "RelativeDocumentMoniker": "ServerSocket.cpp",
@@ -117,13 +117,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "MainWindow.cpp",
               "DocumentMoniker": "D:\\s5613845\\Fltk-networking-assignment\\MainWindow.cpp",
               "RelativeDocumentMoniker": "MainWindow.cpp",
               "ToolTip": "D:\\s5613845\\Fltk-networking-assignment\\MainWindow.cpp",
               "RelativeToolTip": "MainWindow.cpp",
-              "ViewState": "AQIAADkAAAAAAAAAAAAAACQAAAAtAAAA",
+              "ViewState": "AQIAADMAAAAAAAAAAAAewKUAAAADAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-12-12T09:02:18.95Z",
               "EditorCaption": ""
@@ -142,13 +142,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 1,
               "Title": "ClientSocket.cpp",
               "DocumentMoniker": "D:\\s5613845\\Fltk-networking-assignment\\ClientSocket.cpp",
               "RelativeDocumentMoniker": "ClientSocket.cpp",
               "ToolTip": "D:\\s5613845\\Fltk-networking-assignment\\ClientSocket.cpp",
               "RelativeToolTip": "ClientSocket.cpp",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAASAAAA",
+              "ViewState": "AQIAAD8AAAAAAAAAAAAAAFQAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-12-12T09:02:18.95Z",
               "EditorCaption": ""
@@ -168,13 +168,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 0,
               "Title": "MainWindowLayout.cpp",
               "DocumentMoniker": "D:\\s5613845\\Fltk-networking-assignment\\MainWindowLayout.cpp",
               "RelativeDocumentMoniker": "MainWindowLayout.cpp",
               "ToolTip": "D:\\s5613845\\Fltk-networking-assignment\\MainWindowLayout.cpp",
               "RelativeToolTip": "MainWindowLayout.cpp",
-              "ViewState": "AQIAAHUAAAAAAAAAAAAAAKoAAABXAAAA",
+              "ViewState": "AQIAACEAAAAAAAAAAAAAAGkAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-12-12T09:02:18.849Z",
               "EditorCaption": ""
@@ -199,7 +199,7 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 6,
               "Title": "Client.h",
               "DocumentMoniker": "D:\\s5613845\\Fltk-networking-assignment\\Client.h",
               "RelativeDocumentMoniker": "Client.h",
@@ -212,32 +212,33 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 8,
               "Title": "ClientSocket.h",
               "DocumentMoniker": "D:\\s5613845\\Fltk-networking-assignment\\ClientSocket.h",
               "RelativeDocumentMoniker": "ClientSocket.h",
               "ToolTip": "D:\\s5613845\\Fltk-networking-assignment\\ClientSocket.h",
               "RelativeToolTip": "ClientSocket.h",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAB8AAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-12-12T09:02:18.95Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "MainWindowLayout.h",
-              "DocumentMoniker": "D:\\s5613845\\Fltk-networking-assignment\\MainWindowLayout.h",
-              "RelativeDocumentMoniker": "MainWindowLayout.h",
-              "ToolTip": "D:\\s5613845\\Fltk-networking-assignment\\MainWindowLayout.h",
-              "RelativeToolTip": "MainWindowLayout.h",
-              "ViewState": "AQIAACcAAAAAAAAAAAAAADwAAAASAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABYAAAAIAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2024-12-12T09:02:18.95Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 4,
+              "Title": "MainWindowLayout.h",
+              "DocumentMoniker": "D:\\s5613845\\Fltk-networking-assignment\\MainWindowLayout.h",
+              "RelativeDocumentMoniker": "MainWindowLayout.h",
+              "ToolTip": "D:\\s5613845\\Fltk-networking-assignment\\MainWindowLayout.h",
+              "RelativeToolTip": "MainWindowLayout.h",
+              "ViewState": "AQIAACcAAAAAAAAAAAAAAEYAAAAYAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-12-12T09:02:18.95Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
               "Title": "MainWindow.h",
               "DocumentMoniker": "D:\\s5613845\\Fltk-networking-assignment\\MainWindow.h",
               "RelativeDocumentMoniker": "MainWindow.h",
@@ -245,8 +246,7 @@
               "RelativeToolTip": "MainWindow.h",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABYAAAATAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-12-12T09:02:18.95Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-12T09:02:18.95Z"
             },
             {
               "$type": "Document",

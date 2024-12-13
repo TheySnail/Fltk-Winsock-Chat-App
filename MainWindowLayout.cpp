@@ -33,11 +33,13 @@ MainWindowLayout::MainWindowLayout()
 	, m_IpConfirmBttn(0, 0, 0, 0, "Confirm")
 
 	, m_ClientMainCol(0, 0, 640, 480)
-	, m_LeftSideBox(0, 0, 10, 10)
+	, m_ClientBottomRow(0, 0, 10, 10)
+	, m_ClientTopBox(0,0,10,10)
+	, m_textBuffer(0, 0)
+	, m_textDisplay(0, 0, 10, 10)
 	, m_MessageInput(0, 0, 100, 200, "Enter Message")
 	, m_MessageSendBttn(0,0,0,0,"Send Message")
-	, m_textBuffer(0,0)
-	, m_textDisplay(0,0,10,10)
+	
 
 {
 
@@ -107,11 +109,19 @@ MainWindowLayout::MainWindowLayout()
 
 	m_mainCol.add_resizable(m_ClientMainCol);
 
-	m_ClientMainCol.add_resizable(m_LeftSideBox);
+	//m_ClientMainCol.add_resizable(m_ClientTopBox);
 
-	m_LeftSideBox.add_resizable(m_MessageInput);
-	m_LeftSideBox.add_resizable(m_MessageSendBttn);
-	m_LeftSideBox.add_resizable(m_textDisplay);
+	m_ClientMainCol.add_resizable(m_textDisplay);//chat log
+
+	m_ClientMainCol.add_resizable(m_ClientBottomRow);
+
+	//m_ClientBottomRow.type(Fl_Flex::ROW);
+	m_ClientMainCol.fixed(m_ClientBottomRow, 200);
+
+	m_ClientBottomRow.add_resizable(m_MessageInput);
+	m_ClientBottomRow.add_resizable(m_MessageSendBttn);
+	m_ClientBottomRow.fixed(m_MessageSendBttn, 100);
+	
 
 	m_ClientViewGroup->add_resizable(m_ClientMainCol);
 	m_ClientViewGroup->end();

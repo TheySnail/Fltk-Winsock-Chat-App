@@ -4,10 +4,12 @@
 #include "ServerSocket.h"
 #include <iostream>
 #include <string>
+#include <FL/Fl_ask.h>
 
 ClientSocket::ClientSocket()
 	: m_socket(INVALID_SOCKET)
 	, m_closed(false)
+	,m_ClientConnected(false)
 {
 	
 }
@@ -39,14 +41,16 @@ ClientSocket::ClientSocket(std::string _IpAddr, int _port)
 	{
 		std::cout << "Client: connect() - Failed to connect: " << WSAGetLastError() << std::endl;
 
-		//fl_alert("Invalid IP Address Inputed");
+		m_ClientConnected = false;
 
+		fl_alert("Invalid IP Address Inputed");
+		
 	}
 	else
 	{
 		std::cout << "client connected" << std::endl;
 
-		//this->StartTimer();
+		m_ClientConnected = true;
 	}
 
 	u_long mode = 1;

@@ -11,7 +11,6 @@ Client::Client(MainWindow* _MainWindowPtr) :
 	, m_MainWindowPtr(nullptr)
 {
 	m_MainWindowPtr = _MainWindowPtr;
-	std::cout << "w";
 }
 
 Client::~Client()
@@ -20,13 +19,25 @@ Client::~Client()
 
 void Client::InputIpAddr(std::string _IpAddr)
 {
+	try
+	{
+		m_ServerIPAdrr = _IpAddr;
+		std::cout << m_ServerIPAdrr << std::endl;
 
-	m_ServerIPAdrr = _IpAddr;
-	std::cout << m_ServerIPAdrr << std::endl;
 
+		m_ClientSocket = std::make_shared<ClientSocket>(_IpAddr, m_Port);
 
-	m_ClientSocket = std::make_shared<ClientSocket>(_IpAddr, m_Port);
-	this->StartTimer();
+		if (m_ClientSocket->m_ClientConnected == true)
+		{
+			this->StartTimer();
+			m_MainWindowPtr->ChangeLayout(ClientScreen);//changes to the client screen
+		}
+	}
+	catch (std::exception& _e)
+	{
+		std::string msg = _e.what();
+		fl_alert(msg.c_str());
+	}
 }
 
 void Client::ClientSend(std::string _Message)
@@ -36,15 +47,6 @@ void Client::ClientSend(std::string _Message)
 
 void Client::on_tick()
 {
-	/*std::string buffer1;
-
-	std::cout << std::endl << "Enter the message: ";
-	std::getline(std::cin, buffer1);
-
-	m_ClientSocket->send(buffer1);*/
-
-	//recieve incoming data
-
 
 	std::string buffer;
 	if (m_ClientSocket->receive(buffer))
@@ -52,12 +54,8 @@ void Client::on_tick()
 		std::cout << buffer;
 
 		m_MainWindowPtr->AddToDisplay(buffer);
-		/*textbuffer.append(buffer);	how to display text onto wdiget
-		textbuffer.append(\n);
-		display text buffer*/
 	}
 
-	//use fltk display to show message
 }
 
 
