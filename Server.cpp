@@ -28,7 +28,7 @@ void Server::on_tick()
 
 		while (clients.at(ci)->receive(message))
 		{
-			printf("Message recived: %s\n", message.c_str());
+			printf("Message recived: \n %s\n", message.c_str());
 
 			for (size_t cii = 0; cii < clients.size(); ++cii)
 			{

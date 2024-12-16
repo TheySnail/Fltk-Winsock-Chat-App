@@ -17,6 +17,7 @@
 
 #include <FL/Fl_Group.H>
 #include <FL/Fl_Flex.H>
+#include <FL/fl_draw.H>
 
 #include <vector>
 #include <iostream>
@@ -31,12 +32,20 @@ enum LayoutType
 	ServerScreen
 };
 
+enum ProgramTheme
+{
+	Light,
+	Dark,
+	Bird
+};
+
 class MainWindowLayout : public Fl_Window
 {	
 public:
 	MainWindowLayout();
 
 	void ChangeLayout(LayoutType _ScreenState);
+	void ChangeTheme(ProgramTheme _Theme);
 
 protected:
 
@@ -44,10 +53,7 @@ protected:
 
 	Fl_Menu_Bar m_menuBar;
 
-	std::shared_ptr<Fl_Group> m_MainMenuGroup;
-	std::shared_ptr<Fl_Group> m_ServerViewGroup;
-	std::shared_ptr<Fl_Group> m_ClientViewGroup;
-	std::shared_ptr<Fl_Group> m_IpInputScreenGroup;
+
 
 	//main menu assets
 	Fl_Flex m_menuMainCol;
@@ -55,6 +61,7 @@ protected:
 	Fl_Flex m_topRow;
 	Fl_Flex m_midRow;
 	Fl_Flex m_bottomRow;
+	Fl_Flex m_spacerRow;
 
 	Fl_Box m_spacer;
 	Fl_Box m_spacer2;
@@ -65,11 +72,37 @@ protected:
 	
 
 	//server view assets 
+	Fl_Flex m_ServerMainCol;
+	
+
+	//IP input screen
+	Fl_Flex m_IpScreenMainCol;
+	Fl_Flex m_IpTopRow;
+	Fl_Flex m_IpInputRow;
+	Fl_Flex m_IpUsernameInputRow;
+	Fl_Flex m_IpBttnRow;
+	Fl_Flex m_IpBottomRow;
+	Fl_Flex m_IpSpacerRow1;
+	Fl_Flex m_IpSpacerRow2;
+
+	
+	Fl_Box m_IpSpacer1;
+	Fl_Box m_IpSpacer2;
+
+	Fl_Box m_IpSpacer3;
+	Fl_Box m_IpSpacer4;
+
+	Fl_Box m_IpSpacer5;
+	Fl_Box m_IpSpacer6;
+
+	Fl_Input m_IpInputBox;
+	Fl_Input m_UsernameInputBox;
+
+	Fl_Button m_IpConfirmBttn;
+
 	
 	//client view assets
 	Fl_Flex m_ClientMainCol;
-	Fl_Flex m_ClientTopBox;
-	Fl_Flex m_ClientBottomRow;
 
 	Fl_Text_Buffer m_textBuffer;
 	Fl_Text_Display m_textDisplay;
@@ -77,26 +110,7 @@ protected:
 	Fl_Input m_MessageInput;
 	Fl_Button m_MessageSendBttn;
 
-	//IP input screen
-
-	Fl_Flex m_IpScreenMainCol;
-	Fl_Flex m_IpTopRow;
-	Fl_Flex m_IpMidRow;
-	Fl_Flex m_IpBottomRow;
-
-	Fl_Input m_IpInputBox;
-	Fl_Box m_IpSpacer;
-	Fl_Box m_IpSpacer2;
-	Fl_Box m_IpSpacer3;
-
-
-	Fl_Button m_IpConfirmBttn;
-
-
-	/*Fl_Text_Buffer m_IpBuff;
-	Fl_Text_Display m_IpDisplay;*/
-	
-	
+	LayoutType CurrentLayout;
 	
 };
 

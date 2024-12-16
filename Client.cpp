@@ -15,6 +15,8 @@ Client::Client(MainWindow* _MainWindowPtr) :
 
 Client::~Client()
 {
+	std::cout << "deleting client";
+	//delete m_MainWindowPtr;
 }
 
 void Client::InputIpAddr(std::string _IpAddr)

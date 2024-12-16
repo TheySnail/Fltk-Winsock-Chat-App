@@ -139,6 +139,8 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MainWindow.cpp" />
     <ClCompile Include="MainWindowLayout.cpp" />
+    <ClCompile Include="Message.cpp" />
+    <ClCompile Include="pugixml.cpp" />
     <ClCompile Include="Server.cpp" />
     <ClCompile Include="ServerSocket.cpp" />
     <ClCompile Include="Timer.cpp" />
@@ -148,6 +150,9 @@
     <ClInclude Include="Client.h" />
     <ClInclude Include="MainWindow.h" />
     <ClInclude Include="MainWindowLayout.h" />
+    <ClInclude Include="Message.h" />
+    <ClInclude Include="pugiconfig.hpp" />
+    <ClInclude Include="pugixml.hpp" />
     <ClInclude Include="Server.h" />
     <ClInclude Include="ServerSocket.h" />
     <ClInclude Include="Timer.h" />
