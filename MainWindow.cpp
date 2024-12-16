@@ -6,6 +6,11 @@
 
 #include "message.h"
 
+//make server screen
+//add change username
+//add server info
+//add client about
+
 MainWindow::MainWindow()
 	: m_Server(nullptr)
 	, m_Client(nullptr)
@@ -17,8 +22,14 @@ MainWindow::MainWindow()
 
 	m_CreateServerBttn.callback(CreateServer, this);
 	m_CreateClientBttn.callback(StaticCreateClient, this);
+
 	m_IpConfirmBttn.callback(StaticConfirmIp, this);
+	m_IpInputBox.callback(StaticConfirmIp, this);
+	m_IpInputBox.when(FL_WHEN_ENTER_KEY);
+
 	m_MessageSendBttn.callback(StaticSendUserMessage, this);
+	m_MessageInput.callback(StaticSendUserMessage, this);
+	m_MessageInput.when(FL_WHEN_ENTER_KEY);
 
 	m_menuBar.add("&File/&Return To Menu", "^o", StaticReturnToMainMenu, this);
 	m_menuBar.add("&File/&Save", "^s", NULL,0, FL_MENU_DIVIDER);
@@ -77,12 +88,14 @@ void MainWindow::StaticConfirmIp(Fl_Widget* _widget, void* _userData)
 
 		mw->m_IpInputBox.value("");
 
-		mw->m_Client->InputIpAddr(IpBuffer);
-
 		if (mw->m_UsernameInputBox.value() != "")
 		{
 			mw->m_Username = mw->m_UsernameInputBox.value();
 		}
+
+		mw->m_Client->InputIpAddr(IpBuffer);
+
+		
 
 	}
 	catch (std::exception& _e)
@@ -105,11 +118,15 @@ void MainWindow::SendUserMessage()
 	std::string buffer;
 	buffer = m_MessageInput.value();
 
+	buffer = buffer + "¶";
+
 	std::shared_ptr <Message>m_MessagePtr;
 
-	m_MessagePtr = std::make_shared<Message>(m_Username, m_MessageInput.value());
+	m_MessagePtr = std::make_shared<Message>(m_Username, buffer);
 
 	m_Client->ClientSend(m_MessagePtr->ConvertXMLtoString());//sends the converted xml doc as a string
+
+	m_MessageInput.value("");
 }
 
 void MainWindow::AddToDisplay(std::string _buffer)
@@ -163,31 +180,70 @@ std::string MainWindow::HandleIncomingXML(std::string _IncomingXML)
 
 	std::string username = UserData.child("Info").child("Username").attribute("Username").value();
 
-	std::string message = UserData.child("Info").child("Message").attribute("Message").value();
+	std::string message = UserData.child("UserMessage").child("Message").attribute("Message").value();
 
 	std::string Everyone = "Everyone";//needs to be string so i can compare value of Reciprocant
 
-	//if targeted to this specific user will show for targeted user AND user who sent it so they can see whisper history
-	if ((UserData.child("Info").child("Reciprocant").attribute("Reciprocant").value() == getUsername()) || (UserData.child("Info").child("Username").attribute("Username") .value() == getUsername() && UserData.child("Info").child("Reciprocant").attribute("Reciprocant").value() != Everyone))
+	std::string TargetChars ("<?xml");
+	std::string First4Chars;
+
+	for (int i = 0; i <= 4; i++)
 	{
-		std::string completeMessage = username + " whispered to " + UserData.child("Info").child("Reciprocant").attribute("Reciprocant").value() + ": " + message + "\n";
-		//displays as
-		// user 1 Whispered to user 2 : Message
-		return completeMessage;
+		First4Chars = First4Chars + _IncomingXML[i];
+	}
+	
+	if (First4Chars == TargetChars)//checks to see if the first chars are <?xml if they are the data is starting to be sent;
+	{
+		//if targeted to this specific user will show for targeted user AND user who sent it so they can see whisper history
+		if ((UserData.child("Info").child("Reciprocant").attribute("Reciprocant").value() == getUsername()) || (UserData.child("Info").child("Username").attribute("Username").value() == getUsername() && UserData.child("Info").child("Reciprocant").attribute("Reciprocant").value() != Everyone))
+		{
+			message.pop_back();//gets rid of null char at end
+			std::string completeMessage = username + " whispered to " + UserData.child("Info").child("Reciprocant").attribute("Reciprocant").value() + ": " + message + "\n";
+			//displays as
+			// user 1 Whispered to user 2 : Message
+			return completeMessage;
+		}
+
+		//if tartgeted to everyone
+		else if (UserData.child("Info").child("Reciprocant").attribute("Reciprocant").value() == Everyone)
+		{
+			message.pop_back();//gets rid of null char at end
+			std::string completeMessage = username + ": " + message + "\n";
+			return completeMessage;
+		}
+
+		//if targeted to a user which is not this one
+		else
+		{
+			return "";
+		}
+	}
+	else//if message overran
+	{
+		std::string rtnString;
+
+		for (int i = 0; i <= _IncomingXML.size(); i++)
+		{
+			if ((_IncomingXML[i] != '¶'))//keep running 
+			{
+				rtnString = rtnString + _IncomingXML[i];
+			}
+
+			//if (i == 128)//if the message being sent if very long add a new line so it is easier to read
+			//{
+			//	rtnString = rtnString + "\n";
+			//}
+
+			else
+			{
+				rtnString = rtnString + "\n";
+				break;
+			}
+		}
+		return rtnString;
 	}
 
-	//if tartgeted to everyone
-	else if (UserData.child("Info").child("Reciprocant").attribute("Reciprocant").value() == Everyone)
-	{
-		std::string completeMessage = username + ": " + message + "\n";
-		return completeMessage;
-	}
 
-	//if targeted to a user which is not this one
-	else
-	{
-		return "";
-	}
 }
 
 

@@ -14,8 +14,11 @@ Message::Message(std::string _Username, std::string _Message):
 	pugi::xml_node UserData = m_XMLDoc.append_child("UserData");
 	pugi::xml_node Info = UserData.append_child("Info");
 	pugi::xml_node Username = Info.append_child("Username");
-	pugi::xml_node Message = Info.append_child("Message");
 	pugi::xml_node Reciprocant = Info.append_child("Reciprocant");
+	pugi::xml_node UserMessage = UserData.append_child("UserMessage");
+	pugi::xml_node Message = UserMessage.append_child("Message");
+
+	m_XMLDoc.save_file("hey");
 
 	Username.append_attribute("Username").set_value(m_username.c_str());
 	

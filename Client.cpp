@@ -32,6 +32,9 @@ void Client::InputIpAddr(std::string _IpAddr)
 		if (m_ClientSocket->m_ClientConnected == true)
 		{
 			this->StartTimer();
+
+			this->ClientSend(this->m_MainWindowPtr->getUsername()+" joined the room \n");//sends a message when user joins of "username joined the room"
+
 			m_MainWindowPtr->ChangeLayout(ClientScreen);//changes to the client screen
 		}
 	}

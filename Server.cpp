@@ -38,12 +38,15 @@ void Server::on_tick()
 
 		
 
-		if (clients.at(ci)->m_closed)
+		if(clients.at(ci)->m_closed)
 		{
-			printf("Client Disconnected\n");
+			for (size_t cii = 0; cii < clients.size(); ++cii)
+			{
+				clients.at(cii)->send("Client disconnected\n");
+			}
 			clients.erase(clients.begin() + ci);
 			ci--;
 		}
-		
 	}
+
 }

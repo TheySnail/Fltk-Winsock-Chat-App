@@ -36,9 +36,11 @@ MainWindowLayout::MainWindowLayout()
 	, m_IpConfirmBttn(0, 0, 0, 0, "Confirm")
 
 	, m_ClientMainCol(0, 0, 640, 480)
+	, m_clientTopRow(0,0,640,480)
+	, m_ClientBottomRow(0, 0, 640, 480)
 	, m_textBuffer(0, 0)
 	, m_textDisplay(0, 0, 640, 480)
-	, m_MessageInput(0, 0, 100, 200, "Enter Message")
+	, m_MessageInput(0, 0, 100, 200, "")
 	, m_MessageSendBttn(0,0,0,0,"Send Message")
 	
 
@@ -156,17 +158,26 @@ MainWindowLayout::MainWindowLayout()
 
 #pragma region Client screen
 
-	m_mainCol.add_resizable(m_textDisplay);
+
+
 
 	m_mainCol.add_resizable(m_ClientMainCol);
 
-	
+	m_ClientMainCol.add_resizable(m_clientTopRow);
 
-	m_ClientMainCol.type(Fl_Flex::ROW);
-	m_mainCol.fixed(m_ClientMainCol, 50);
+	m_clientTopRow.margin(10, 10);
 
-	m_ClientMainCol.add_resizable(m_MessageInput);
-	m_ClientMainCol.add_resizable(m_MessageSendBttn);
+	m_clientTopRow.add_resizable(m_textDisplay);
+
+	m_ClientMainCol.add_resizable(m_ClientBottomRow);
+
+	m_ClientBottomRow.type(Fl_Flex::ROW);
+	m_ClientMainCol.fixed(m_ClientBottomRow, 50);
+	m_ClientBottomRow.margin(10, 10);
+
+	m_ClientBottomRow.add_resizable(m_MessageInput);
+	m_ClientBottomRow.add_resizable(m_MessageSendBttn);
+	m_ClientBottomRow.fixed(m_MessageSendBttn, 100);
 
 #pragma endregion
 

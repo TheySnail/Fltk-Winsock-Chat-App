@@ -102,8 +102,10 @@ protected:
 
 	
 	//client view assets
+	
 	Fl_Flex m_ClientMainCol;
-
+	Fl_Flex m_clientTopRow;
+	Fl_Flex m_ClientBottomRow;
 	Fl_Text_Buffer m_textBuffer;
 	Fl_Text_Display m_textDisplay;
 
