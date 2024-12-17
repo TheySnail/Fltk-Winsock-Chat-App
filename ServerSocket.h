@@ -14,7 +14,7 @@ struct ServerSocket
 	std::shared_ptr<ClientSocket> accept();
 
 private:
-	SOCKET m_socket;
+	SOCKET m_Socket;
 
 	ServerSocket(const ServerSocket& _copy);
 	ServerSocket& operator = (const ServerSocket& _assign);

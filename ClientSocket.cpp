@@ -7,22 +7,22 @@
 #include <FL/Fl_ask.h>
 
 ClientSocket::ClientSocket()
-	: m_socket(INVALID_SOCKET)
-	, m_closed(false)
+	: m_Socket(INVALID_SOCKET)
+	, m_Closed(false)
 	,m_ClientConnected(false)
 {
 	
 }
 
 ClientSocket::ClientSocket(std::string _IpAddr, int _port)
-	: m_socket(INVALID_SOCKET)
-	, m_closed(false)
+	: m_Socket(INVALID_SOCKET)
+	, m_Closed(false)
 {
 	//create socket
-	m_socket = INVALID_SOCKET;
-	m_socket = socket(AF_INET, SOCK_STREAM, IPPROTO_TCP);
+	m_Socket = INVALID_SOCKET;
+	m_Socket = socket(AF_INET, SOCK_STREAM, IPPROTO_TCP);
 
-	if (m_socket == INVALID_SOCKET)
+	if (m_Socket == INVALID_SOCKET)
 	{
 		std::cout << "error at socket: " << WSAGetLastError() << std::endl;
 	}
@@ -37,7 +37,7 @@ ClientSocket::ClientSocket(std::string _IpAddr, int _port)
 	clientService.sin_addr.s_addr = inet_addr(_IpAddr.c_str());//server ip address
 
 	// Use the connect function
-	if (connect(m_socket, reinterpret_cast<SOCKADDR*>(&clientService), sizeof(clientService)) == SOCKET_ERROR)
+	if (connect(m_Socket, reinterpret_cast<SOCKADDR*>(&clientService), sizeof(clientService)) == SOCKET_ERROR)
 	{
 		std::cout << "Client: connect() - Failed to connect: " << WSAGetLastError() << std::endl;
 
@@ -55,7 +55,7 @@ ClientSocket::ClientSocket(std::string _IpAddr, int _port)
 
 	u_long mode = 1;
 
-	if (ioctlsocket(m_socket, FIONBIO, &mode) == SOCKET_ERROR)
+	if (ioctlsocket(m_Socket, FIONBIO, &mode) == SOCKET_ERROR)
 	{
 		throw std::runtime_error("Failed to set non-blocking");
 	}
@@ -64,16 +64,16 @@ ClientSocket::ClientSocket(std::string _IpAddr, int _port)
 
 ClientSocket::~ClientSocket()
 {
-	if (m_socket != INVALID_SOCKET)
+	if (m_Socket != INVALID_SOCKET)
 	{
-		closesocket(m_socket);
+		closesocket(m_Socket);
 	}
 }
 
 bool ClientSocket::receive(std::string& _message)
 {
 	char buffer[256] = { 0 };
-	int bytes = ::recv(m_socket, buffer, sizeof(buffer)-1 , 0);
+	int bytes = ::recv(m_Socket, buffer, sizeof(buffer) - 1, 0);
 	if (bytes == SOCKET_ERROR)
 	{
 		int error = WSAGetLastError();
@@ -86,17 +86,16 @@ bool ClientSocket::receive(std::string& _message)
 	}
 	else if (bytes == 0)
 	{
-		m_closed = true;
+		m_Closed = true;
 		return false;
 	}
 	_message = buffer;
 	return true;
-
 }
 
 int ClientSocket::send(const std::string& _message)
 {
-	int bytes = ::send(m_socket, _message.c_str(), _message.length(), 0);
+	int bytes = ::send(m_Socket, _message.c_str(), _message.length(), 0);
 	if (bytes <= 0)
 	{
 		throw std::runtime_error("Failed to send data");

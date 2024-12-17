@@ -31,9 +31,10 @@ void Client::InputIpAddr(std::string _IpAddr)
 
 		if (m_ClientSocket->m_ClientConnected == true)
 		{
+			this->m_MainWindowPtr->SetClientConnected(true);
 			this->StartTimer();
 
-			this->ClientSend(this->m_MainWindowPtr->getUsername()+" joined the room \n");//sends a message when user joins of "username joined the room"
+			this->ClientSend(this->m_MainWindowPtr->Rot13(this->m_MainWindowPtr->getUsername()+" joined the room \n"));//sends a message when user joins of "username joined the room" encrypted
 
 			m_MainWindowPtr->ChangeLayout(ClientScreen);//changes to the client screen
 		}
@@ -50,9 +51,13 @@ void Client::ClientSend(std::string _Message)
 	m_ClientSocket->send(_Message);
 }
 
+void Client::RequestServerInfo()
+{
+	m_ClientSocket->send("©");
+}
+
 void Client::on_tick()
 {
-
 	std::string buffer;
 	if (m_ClientSocket->receive(buffer))
 	{
@@ -63,17 +68,7 @@ void Client::on_tick()
 
 }
 
-
-//put this aroud functions to catch erros and throw a box in fltk to not crash 
-//
-// #include <FL/Fl_ask.h>
-// 
-//try
-//{
-//	function();
-//}
-//catch (std::exception& _e)
-//{
-//	std::string msg = _e.what();
-//	fl_alert(msg.c_str());
-//}
+bool Client::GetClientSocketClosed()
+{
+	return m_ClientSocket->m_Closed;
+}

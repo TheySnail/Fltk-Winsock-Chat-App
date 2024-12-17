@@ -18,14 +18,14 @@ struct ClientSocket
 	bool receive(std::string& _message);
 	int send(const std::string& _message);
 
-	bool m_closed;
+	bool m_Closed;
 
 	bool m_ClientConnected;
 
 private:
 	friend struct ServerSocket;
 
-	SOCKET m_socket;
+	SOCKET m_Socket;
 
 	ClientSocket(const ClientSocket& _copy);
 	ClientSocket& operator=(const ClientSocket& _assign);

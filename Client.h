@@ -21,6 +21,13 @@ public:
 	void InputIpAddr(std::string _IpAddr);
 	void ClientSend(std::string _Message);
 
+	void RequestServerInfo();
+
+	bool GetClientSocketClosed();
+
+protected:
+	std::shared_ptr<ClientSocket> m_ClientSocket;
+
 private:
 	
 	void on_tick();
@@ -28,10 +35,9 @@ private:
 
 	std::string m_ServerIPAdrr;
 
-	std::shared_ptr<ClientSocket> m_ClientSocket;
+	
 
 	std::vector<unsigned char> m_IncomingData;
-	//std::string m_IncomingData;
 
 	MainWindow* m_MainWindowPtr;
 };

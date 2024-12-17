@@ -7,7 +7,6 @@ struct Timer
 	virtual void on_tick();
 	virtual void StartTimer();
 private:
-	//void* m_userdata;
-	double m_duration;
+	double m_Duration;
 	static void tick(void* _userdata);
 };

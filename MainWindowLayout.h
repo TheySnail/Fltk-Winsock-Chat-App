@@ -29,14 +29,19 @@ enum LayoutType
 	MainMenu,
 	ClientScreen,
 	ClientIpScreen,
-	ServerScreen
+	ServerScreen,
+	ShowReinputUsername,
+	HideReinputUsername
 };
 
 enum ProgramTheme
 {
 	Light,
 	Dark,
-	Bird
+	Bird,
+	Blossom,
+	Beige,
+	Hacker
 };
 
 class MainWindowLayout : public Fl_Window
@@ -49,23 +54,23 @@ public:
 
 protected:
 
-	Fl_Flex m_mainCol;
+	Fl_Flex m_MainCol;
 
-	Fl_Menu_Bar m_menuBar;
+	Fl_Menu_Bar m_MenuBar;
 
-
+	
 
 	//main menu assets
-	Fl_Flex m_menuMainCol;
+	Fl_Flex m_MenuMainCol;
 
-	Fl_Flex m_topRow;
-	Fl_Flex m_midRow;
-	Fl_Flex m_bottomRow;
-	Fl_Flex m_spacerRow;
+	Fl_Flex m_MenuTopRow;
+	Fl_Flex m_MenuMidRow;
+	Fl_Flex m_MenuBottomRow;
+	Fl_Flex m_MenuSpacerRow;
 
-	Fl_Box m_spacer;
-	Fl_Box m_spacer2;
-	Fl_Box m_spacer3;
+	Fl_Box m_MenuSpacer1;
+	Fl_Box m_MenuSpacer2;
+	Fl_Box m_MenuSpacer3;
 
 	Fl_Button m_CreateServerBttn;
 	Fl_Button m_CreateClientBttn;
@@ -73,7 +78,14 @@ protected:
 
 	//server view assets 
 	Fl_Flex m_ServerMainCol;
-	
+	Fl_Flex m_ServerTopCol;
+	Fl_Flex m_ServerBottomRow;
+
+	Fl_Text_Buffer m_ServerBuffer;
+	Fl_Text_Display m_ServerDisplay;
+
+	Fl_Input m_ServerMessageInput;
+	Fl_Button m_ServerMessageSendBttn;
 
 	//IP input screen
 	Fl_Flex m_IpScreenMainCol;
@@ -104,16 +116,35 @@ protected:
 	//client view assets
 	
 	Fl_Flex m_ClientMainCol;
-	Fl_Flex m_clientTopRow;
+	Fl_Flex m_ClientTopRow;
 	Fl_Flex m_ClientBottomRow;
-	Fl_Text_Buffer m_textBuffer;
-	Fl_Text_Display m_textDisplay;
+	Fl_Text_Buffer m_ClientTextBuffer;
+	Fl_Text_Display m_ClientTextDisplay;
 
 	Fl_Input m_MessageInput;
 	Fl_Button m_MessageSendBttn;
 
+	//username row
+	Fl_Flex m_UserNameRow;
+	Fl_Input m_UsernameReinputBox;
+	Fl_Box m_ReinputSpacer;
+	Fl_Button m_UsernameReinputBttn;
+
+	//about 
+	Fl_Flex m_AboutRow;
+	Fl_Flex m_AboutSpacer1;
+	Fl_Flex m_AboutBox;
+	Fl_Flex m_AboutSpacer2;
+
+	//server info
+	Fl_Flex m_ServerInfoRow;
+	Fl_Flex m_ServerInfoSpacer1;
+	Fl_Text_Buffer m_ServerInfoBuffer;
+	Fl_Text_Display m_ServerInfoDisplay;
+	Fl_Flex m_ServerInfoSpacer2;
+
 	LayoutType CurrentLayout;
-	
+
 };
 
 

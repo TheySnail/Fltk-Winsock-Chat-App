@@ -6,7 +6,7 @@
 #include <vector>
 
 ServerSocket::ServerSocket(int _port)
-	: m_socket(INVALID_SOCKET)//null socket
+	: m_Socket(INVALID_SOCKET)//null socket
 {
 	//what we want the socket to use
 	addrinfo hints = { 0 };
@@ -22,15 +22,15 @@ ServerSocket::ServerSocket(int _port)
 		throw std::runtime_error("Failed to resolve server address or port");
 	}
 
-	m_socket = socket(result->ai_family, result->ai_socktype, result->ai_protocol);
+	m_Socket = socket(result->ai_family, result->ai_socktype, result->ai_protocol);
 
-	if (m_socket == INVALID_SOCKET)
+	if (m_Socket == INVALID_SOCKET)
 	{
 		freeaddrinfo(result);
 		throw std::runtime_error("Failed to create socket");
 	}
 
-	if (bind(m_socket, result->ai_addr, result->ai_addrlen) == SOCKET_ERROR)
+	if (bind(m_Socket, result->ai_addr, result->ai_addrlen) == SOCKET_ERROR)
 	{
 		freeaddrinfo(result);
 		throw std::runtime_error("Failed to bind socket");
@@ -38,14 +38,14 @@ ServerSocket::ServerSocket(int _port)
 
 	freeaddrinfo(result);
 
-	if (listen(m_socket, SOMAXCONN) == SOCKET_ERROR)
+	if (listen(m_Socket, SOMAXCONN) == SOCKET_ERROR)
 	{
 		throw std::runtime_error("Failed to listen on socket");
 	}
 
 	u_long mode = 1;
 
-	if (ioctlsocket(m_socket, FIONBIO, &mode) == SOCKET_ERROR)
+	if (ioctlsocket(m_Socket, FIONBIO, &mode) == SOCKET_ERROR)
 	{
 		throw std::runtime_error("Failed to set non-blocking");
 	}
@@ -53,12 +53,12 @@ ServerSocket::ServerSocket(int _port)
 
 ServerSocket::~ServerSocket()
 {
-	closesocket(m_socket);
+	closesocket(m_Socket);
 }
 
 std::shared_ptr<ClientSocket> ServerSocket::accept()
 {
-	SOCKET socket = ::accept(m_socket, NULL, NULL);
+	SOCKET socket = ::accept(m_Socket, NULL, NULL);
 
 	if (socket == INVALID_SOCKET)
 	{
@@ -71,7 +71,7 @@ std::shared_ptr<ClientSocket> ServerSocket::accept()
 	}
 
 	std::shared_ptr<ClientSocket> rtn = std::make_shared<ClientSocket>();
-	rtn->m_socket = socket;
+	rtn->m_Socket = socket;
 
 	return rtn;
 }

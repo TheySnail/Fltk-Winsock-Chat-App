@@ -11,7 +11,7 @@ public:
 	~Server();
 
 private:
-	std::vector<std::shared_ptr<ClientSocket> > clients;
-	ServerSocket m_server;
+	std::vector<std::shared_ptr<ClientSocket> > m_Clients;
+	ServerSocket m_Server;
 	void on_tick();
 };

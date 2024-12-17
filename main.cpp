@@ -9,10 +9,14 @@
 #include <iostream>
 #include <vector>
 #include <stdexcept>
+#include <windows.h>
 
 
 int main(int argc, char* argv[])
 {
+	//hides the console 
+	FreeConsole();
+
 	Fl::scheme("gtk+");
 
 	Wsa wsa;
